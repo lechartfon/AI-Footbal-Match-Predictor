@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Match Predictor</title>
+  <link rel="stylesheet" href="/static/vendor/xterm/css/xterm.css">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <h1 id="modal-title">AI Match Predictor</h1>
+      <p>
+        Bienvenido. Este es un <strong>proyecto personal de demostración</strong> y
+        todo lo que ves a continuación tiene fines <strong>estrictamente educativos</strong>.
+      </p>
+      <p>
+        El resultado lo genera un modelo de machine learning entrenado con datos
+        históricos de partidos de fútbol. No constituye asesoramiento deportivo,
+        financiero ni de apuestas, y <strong>no se garantiza su precisión</strong>.
+      </p>
+      <p>
+        El modelo usa estadísticas que introduces tú (tiros a puerta, córners y
+        faltas). Los nombres de los equipos son solo etiquetas visuales.
+      </p>
+      <button id="accept-btn" class="primary-btn">Entendido, continuar</button>
+    </div>
+  </div>
+
+  <main class="app">
+    <header class="topbar">
+      <span class="title">AI Match Predictor</span>
+      <span class="status">
+        <span id="status-dot" class="dot off"></span>
+        <span id="status-text">Desconectado</span>
+      </span>
+      <button id="reconnect-btn" class="ghost-btn" hidden>Reconectar</button>
+    </header>
+    <div id="terminal"></div>
+  </main>
+
+  <script src="/static/vendor/xterm/lib/xterm.js"></script>
+  <script src="/static/vendor/xterm/addon-fit/lib/addon-fit.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+services:
+  predictor:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    ports:
+      # Only reachable from the host loopback; the reverse proxy (Caddy/Nginx)
+      # on the host forwards aimatchpredictor.luanef.dev -> 127.0.0.1:8000.
+      - "127.0.0.1:8000:8000"
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
+    environment:
+      - TF_CPP_MIN_LOG_LEVEL=2
+      - HOME=/tmp
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s

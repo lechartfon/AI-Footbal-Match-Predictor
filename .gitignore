@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Data
+data/*.npy
+data/*.csv
+
+# Models
+models/*.keras
+models/*.h5
+
+# Logs
+logs/
+*.tfevents.*
+
+# Models (generated)
+models/
+
+# Web artifacts (built offline, shipped to the server, never in git)
+artifacts/
+
+# Data (generated)
+data/*.npy
+data/*.pkl
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
